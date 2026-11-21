@@ -655,6 +655,8 @@ html[data-color-mode="light"] .card:hover {
   gap: 14px;
 }
 
+.thanks-grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
 .thanks-card {
   display: flex;
   align-items: center;
@@ -883,7 +885,10 @@ html[data-color-mode="light"] .thanks-card img {
   align-items: center;
   gap: 7px;
   color: var(--text-2);
+  transition: color .25s ease;
 }
+
+.footer-lang:hover { color: var(--mint); }
 
 .footer-lang svg { width: 13px; height: 13px; opacity: .8; }
 
@@ -961,6 +966,7 @@ html[data-color-mode="light"] .thanks-card img {
   .hero-mark img { width: 72px; height: 72px; border-radius: 20px; }
   .grid-3, .versions { grid-template-columns: 1fr; }
   .thanks-grid { grid-template-columns: 1fr; }
+  .thanks-grid.two { grid-template-columns: 1fr; }
   .spec-panel { grid-template-columns: 1fr; }
   .spec-item { border-right: 0; border-bottom: 1px solid var(--border); }
   .spec-item:last-child { border-bottom: 0; }
