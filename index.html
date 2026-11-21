@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FireflyOS — 让 Windows 重新发光</title>
+<meta name="description" content="FireflyOS 是 DomeOS Team 打造的 Windows 精简优化版本，覆盖 Windows 7 / 8.1 / 10 / 11，在不牺牲核心功能的前提下降低系统占用。" />
+<meta name="theme-color" content="#05060a" />
+<meta name="color-scheme" content="dark" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="FireflyOS — 让 Windows 重新发光" />
+<meta property="og:description" content="DomeOS Team 出品的 Windows 精简优化版本，覆盖 Windows 7 / 8.1 / 10 / 11。" />
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
+<style>html{background:#05060a;color-scheme:dark}</style>
+<link rel="stylesheet" href="assets/style.css" />
+<link rel="stylesheet" href="assets/theme.css" />
+</head>
+<body>
+
+<div class="bg-scene" aria-hidden="true">
+  <span class="orb o1"></span>
+  <span class="orb o2"></span>
+</div>
+
+<header class="site-header">
+  <div class="container nav-inner">
+    <a class="brand" href="#" aria-label="FireflyOS 首页">
+      <img class="mark" src="assets/logo.svg" alt="" />
+      <span>FireflyOS</span>
+    </a>
+    <nav class="nav-links" id="navLinks" aria-label="主导航">
+      <a href="#features">特性</a>
+      <a href="#versions">版本</a>
+      <a href="#download">下载</a>
+      <a href="https://liu7pro.github.io/DomeOS-Team/">DomeOS Team</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn-primary btn-sm" href="https://fireflyos.choling.cyou" target="_blank" rel="noopener">前往官网</a>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="打开菜单" aria-expanded="false">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge">
+        <img src="assets/logo.svg" alt="" />
+        <b>DomeOS Team</b> 出品
+      </div>
+      <h1>FireflyOS</h1>
+      <p class="lead">
+        让 Windows 轻一点，也亮一点。<br />
+        在不牺牲核心功能的前提下，<strong>把系统里不必要的负担拿掉</strong>。
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://fireflyos.choling.cyou" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+          前往官网下载
+        </a>
+        <a class="btn btn-ghost" href="#features">了解特性</a>
+      </div>
+      <p class="hero-note">官方网站 fireflyos.choling.cyou · 建议使用 PC 访问</p>
+
+      <div class="hero-chips">
+        <span>Windows 7 / 8.1 / 10 / 11</span>
+        <span>精简 · 稳定 · 原生</span>
+        <span>由 DomeOS Team 制作</span>
+      </div>
+
+      <div class="showcase reveal">
+        <div class="showcase-head">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="showcase-title">FireflyOS · 系统概览</span>
+        </div>
+        <div class="showcase-body">
+          <div class="spec-row"><span>覆盖版本</span><b>Windows 7 / 8.1 / 10 / 11</b></div>
+          <div class="spec-row"><span>设计取向</span><b><em>轻量</em> · <em>稳定</em> · <em>原生</em></b></div>
+          <div class="spec-row"><span>共同点</span><b>精简预装与后台负担，保留核心功能</b></div>
+          <div class="spec-row"><span>维护团队</span><b>DomeOS Team</b></div>
+          <div class="spec-row"><span>官方网站</span><b>fireflyos.choling.cyou</b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="features">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Design Principles</span>
+        <h2 class="section-title">精简，但不缺东西</h2>
+        <p class="section-sub">FireflyOS 改动的是系统里看不见的负担，而不是你每天要用的功能。</p>
+      </div>
+
+      <div class="grid-3">
+        <article class="card reveal">
+          <span class="card-index">01</span>
+          <h3>精简预装</h3>
+          <p>移除冗余应用与不必要的后台服务，减少开机与常驻占用。</p>
+        </article>
+        <article class="card reveal">
+          <span class="card-index">02</span>
+          <h3>保留核心</h3>
+          <p>常用功能、驱动程序与更新能力完整保留，日常使用不受影响。</p>
+        </article>
+        <article class="card reveal">
+          <span class="card-index">03</span>
+          <h3>降低占用</h3>
+          <p>针对内存、CPU 与磁盘做优化，让老设备也能保持顺畅。</p>
+        </article>
+        <article class="card reveal">
+          <span class="card-index">04</span>
+          <h3>原生体验</h3>
+          <p>保留 Windows 原有的交互与视觉，不需要重新学习任何操作。</p>
+        </article>
+        <article class="card reveal">
+          <span class="card-index">05</span>
+          <h3>稳定优先</h3>
+          <p>改动克制，以稳定为第一目标，不为精简而牺牲可靠性。</p>
+        </article>
+        <article class="card reveal">
+          <span class="card-index">06</span>
+          <h3>持续维护</h3>
+          <p>由 DomeOS Team 持续跟进与修正，版本信息统一在官网发布。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="versions">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Versions</span>
+        <h2 class="section-title">四个版本，一条路线</h2>
+        <p class="section-sub">从经典系统到现代系统，同一套精简思路。</p>
+      </div>
+
+      <div class="versions reveal">
+        <div class="version-card">
+          <div class="v">7<small>经典版</small></div>
+          <p>为仍在使用 Windows 7 的设备准备的轻量版本。</p>
+          <span class="maker">制作 · VMwareLY14</span>
+        </div>
+        <div class="version-card">
+          <div class="v">8.1<small>经典版</small></div>
+          <p>保留 8.1 的轻快手感，去掉多余的后台负担。</p>
+          <span class="maker">制作 · VMwareLY14</span>
+        </div>
+        <div class="version-card">
+          <div class="v">10<small>现代版</small></div>
+          <p>面向主流设备，兼顾兼容性与系统占用。</p>
+          <span class="maker">制作 · wslaoliu7a</span>
+        </div>
+        <div class="version-card">
+          <div class="v">11<small>现代版</small></div>
+          <p>在 Windows 11 上做减法，保留完整的现代体验。</p>
+          <span class="maker">制作 · wslaoliu7a</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="quote reveal">
+        <p>在不影响功能的前提下，尽可能降低 Windows 的占用。</p>
+        <span>DomeOS Team</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="download">
+    <div class="container">
+      <div class="cta-panel reveal">
+        <img src="assets/logo.svg" alt="" />
+        <div class="cta-text">
+          <h2>获取 FireflyOS</h2>
+          <p>完整版本列表、更新说明与下载地址均在官方网站提供。</p>
+        </div>
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="https://fireflyos.choling.cyou" target="_blank" rel="noopener">访问官网</a>
+          <a class="btn btn-ghost" href="https://liu7pro.github.io/DomeOS-Team/">了解团队</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a class="brand" href="#">
+        <img class="mark" src="assets/logo.svg" alt="" />
+        <span>FireflyOS</span>
+      </a>
+      <p>DomeOS Team 的 Windows 精简优化项目，覆盖 Windows 7 / 8.1 / 10 / 11。</p>
+    </div>
+    <div class="footer-col">
+      <h4>本页</h4>
+      <a href="#features">特性</a>
+      <a href="#versions">版本</a>
+      <a href="#download">下载</a>
+    </div>
+    <div class="footer-col">
+      <h4>DomeOS</h4>
+      <a href="https://liu7pro.github.io/DomeOS-Team/">DomeOS Team</a>
+      <a href="https://liu7pro.github.io/DomeOS-Next/">DomeOS-Next</a>
+      <a href="https://liu7pro.github.io/">DomeOS AI</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© <span id="year">2026</span> DomeOS Team. All rights reserved.</span>
+    <span>官方网站 fireflyos.choling.cyou</span>
+  </div>
+</footer>
+
+<script src="assets/main.js"></script>
+</body>
+</html>

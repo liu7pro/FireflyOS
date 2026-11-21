@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="FireflyOS">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#14170d"/>
+      <stop offset="1" stop-color="#070906"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="45%" r="55%">
+      <stop offset="0" stop-color="#fbffd0"/>
+      <stop offset="0.55" stop-color="#d9f56a"/>
+      <stop offset="1" stop-color="#9cba31"/>
+    </radialGradient>
+    <linearGradient id="wing" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".9"/>
+      <stop offset="1" stop-color="#d9f56a" stop-opacity=".18"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="15" fill="url(#bg)"/>
+  <rect x="0.5" y="0.5" width="63" height="63" rx="14.5" fill="none" stroke="#d9f56a" stroke-opacity=".18"/>
+  <ellipse cx="23.5" cy="26" rx="10.5" ry="5.6" transform="rotate(-30 23.5 26)" fill="url(#wing)" opacity=".5"/>
+  <ellipse cx="40.5" cy="26" rx="10.5" ry="5.6" transform="rotate(30 40.5 26)" fill="url(#wing)" opacity=".5"/>
+  <path d="M30 21.5l-4-4M34 21.5l4-4" stroke="#d9f56a" stroke-width="1.6" stroke-linecap="round" opacity=".75"/>
+  <circle cx="32" cy="27" r="5.2" fill="url(#glow)"/>
+  <path d="M32 33.5v8.5" stroke="#d9f56a" stroke-width="2.2" stroke-linecap="round"/>
+  <circle cx="32" cy="45" r="2.5" fill="#f6ffc2"/>
+  <circle cx="32" cy="51.5" r="1.4" fill="#d9f56a" opacity=".65"/>
+</svg>
