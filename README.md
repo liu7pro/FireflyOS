@@ -6,7 +6,7 @@ FireflyOS 是 DomeOS Team 打造的 Windows 精简优化版本，覆盖 Windows 
 本仓库为 FireflyOS 项目官网页面，使用纯静态 HTML / CSS / JavaScript 构建，部署于 GitHub Pages。
 
 - 线上地址：https://liu7pro.github.io/FireflyOS/
-- 官方下载站：https://fireflyos.choling.cyou
+- 安装包下载：https://pan.legspcpd.top/s/m5fM
 
 ## 目录结构
 
@@ -20,7 +20,8 @@ FireflyOS 是 DomeOS Team 打造的 Windows 精简优化版本，覆盖 Windows 
     ├── style.css       站点样式
     ├── main.js         主题切换、交互与萤火粒子
     ├── logo.svg        站点图标
-    └── emblem.svg      首屏流萤徽标
+    ├── emblem.svg      首屏流萤徽标
+    └── people/         鸣谢名单头像
 ```
 
 ## 深浅色模式
