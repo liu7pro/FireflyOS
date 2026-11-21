@@ -75,6 +75,27 @@
     });
   }
 
+  /* ---------------- 导航高光 ---------------- */
+  var navHover = navLinks ? navLinks.querySelector('.nav-hover') : null;
+  if (navLinks && navHover) {
+    var movePill = function (link) {
+      if (!link || window.matchMedia('(max-width: 820px)').matches) return;
+      navHover.style.setProperty('--pill-x', link.offsetLeft + 'px');
+      navHover.style.setProperty('--pill-w', link.offsetWidth + 'px');
+      navLinks.classList.add('pill-on');
+    };
+    navLinks.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('mouseenter', function () { movePill(link); });
+      link.addEventListener('focus', function () { movePill(link); });
+    });
+    navLinks.addEventListener('mouseleave', function () {
+      navLinks.classList.remove('pill-on');
+    });
+    navLinks.addEventListener('blur', function () {
+      navLinks.classList.remove('pill-on');
+    }, true);
+  }
+
   /* ---------------- 入场动画 ---------------- */
   var revealItems = document.querySelectorAll('[data-reveal]');
   if ('IntersectionObserver' in window && !reduceMotion) {
