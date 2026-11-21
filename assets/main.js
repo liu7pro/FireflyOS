@@ -198,6 +198,27 @@
 })();
 
 
+/* ---------- 流萤光标尾迹 ---------- */
+(function () {
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var last = 0;
+  document.addEventListener('mousemove', function (e) {
+    var now = Date.now();
+    if (now - last < 75) return;
+    last = now;
+    var spark = document.createElement('span');
+    spark.className = 'cursor-spark';
+    spark.style.left = e.clientX + 'px';
+    spark.style.top = e.clientY + 'px';
+    spark.style.setProperty('--sx', (Math.random() * 18 - 9).toFixed(1) + 'px');
+    spark.style.setProperty('--sy', (-10 - Math.random() * 16).toFixed(1) + 'px');
+    document.body.appendChild(spark);
+    window.setTimeout(function () { spark.remove(); }, 950);
+  }, { passive: true });
+})();
+
 /* ---------- 自定义光标（参考 Moonshot） ---------- */
 (function () {
   if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
@@ -212,7 +233,7 @@
   document.body.appendChild(ring);
   document.body.appendChild(dot);
 
-  var mx = -100, my = -100, rx = -100, ry = -100, shown = false;
+  var mx = -100, my = -100, rx = -100, ry = -100, shown = false, down = false;
   var hoverSel = 'a, button, .btn, [role="button"], [data-cursor-hover], .card, .member, .thanks-card, .product-card';
 
   document.addEventListener('mousemove', function (e) {
@@ -229,7 +250,7 @@
   (function loop() {
     rx += (mx - rx) * 0.2;
     ry += (my - ry) * 0.2;
-    ring.style.transform = 'translate3d(' + rx + 'px,' + ry + 'px,0)';
+    ring.style.transform = 'translate3d(' + rx + 'px,' + ry + 'px,0) scale(' + (down ? 0.86 : 1) + ')';
     window.requestAnimationFrame(loop);
   })();
 
@@ -239,8 +260,8 @@
   document.addEventListener('mouseout', function (e) {
     if (e.target.closest && e.target.closest(hoverSel)) ring.classList.remove('is-hover');
   });
-  document.addEventListener('mousedown', function () { ring.classList.add('is-down'); });
-  document.addEventListener('mouseup', function () { ring.classList.remove('is-down'); });
+  document.addEventListener('mousedown', function () { down = true; });
+  document.addEventListener('mouseup', function () { down = false; });
   document.addEventListener('mouseleave', function () {
     ring.style.opacity = '0';
     dot.style.opacity = '0';

@@ -1093,7 +1093,7 @@ html[data-color-mode="light"] .thanks-card img {
   border-color: var(--cursor-ring, #fff);
   background-color: var(--cursor-fill, rgba(255, 255, 255, .12));
 }
-.cursor-ring.is-down { scale: .82; }
+
 @media (hover: none), (pointer: coarse) {
   .cursor-ring, .cursor-dot { display: none; }
 }
@@ -1101,3 +1101,44 @@ html[data-color-mode="light"] .thanks-card img {
   html, body, a, button, .btn, input, textarea, select, [role="button"] { cursor: none; }
 }
 .cursor-ring.is-hover{background:radial-gradient(circle,var(--cursor-fill),transparent 72%)}
+
+/* 流萤：虚线轨道 + 琥珀萤火卫星 */
+.cursor-ring::before {
+  content: "";
+  position: absolute;
+  inset: -7px;
+  border-radius: 50%;
+  border: 1px dashed rgba(52, 211, 153, .30);
+  animation: cursor-spin 9s linear infinite;
+}
+.cursor-ring::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  right: 1px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #ffd27a;
+  box-shadow: 0 0 10px rgba(255, 210, 122, .9);
+}
+.cursor-ring.is-hover::before { border-color: rgba(255, 210, 122, .55); }
+@keyframes cursor-spin { to { transform: rotate(360deg); } }
+
+/* 流萤尾迹 */
+.cursor-spark {
+  position: fixed;
+  width: 4px;
+  height: 4px;
+  margin: -2px 0 0 -2px;
+  border-radius: 50%;
+  background: #ffd27a;
+  box-shadow: 0 0 9px rgba(255, 210, 122, .95);
+  pointer-events: none;
+  z-index: 9998;
+  animation: cursor-spark .95s ease-out forwards;
+}
+@keyframes cursor-spark {
+  0% { opacity: .95; transform: translate(0, 0) scale(1); }
+  100% { opacity: 0; transform: translate(var(--sx, 0), var(--sy, -14px)) scale(.15); }
+}
