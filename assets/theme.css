@@ -1,8 +1,87 @@
+/* FireflyOS — 主题令牌
+   深夜蓝底 + 薄荷微光 + 萤火琥珀
+   所有颜色集中在此文件，深浅色由 data-theme 切换 */
+
 :root {
-  --accent: #d9f56a;
-  --accent-2: #ffb347;
-  --accent-soft: rgba(217, 245, 106, 0.1);
-  --accent-line: rgba(217, 245, 106, 0.32);
-  --h1-end: #eaf9b4;
-  --btn-text: #101403;
+  color-scheme: dark;
+
+  --bg: #060a10;
+  --bg-2: #0a121c;
+  --bg-3: #0d1826;
+
+  --surface: rgba(255, 255, 255, .045);
+  --surface-2: rgba(255, 255, 255, .075);
+  --surface-3: rgba(255, 255, 255, .11);
+
+  --border: rgba(255, 255, 255, .09);
+  --border-strong: rgba(255, 255, 255, .18);
+
+  --text: #e9f2ee;
+  --text-2: #9db1ab;
+  --text-3: #62766f;
+
+  --mint: #34d399;
+  --mint-soft: #6ee7b7;
+  --amber: #fbbf24;
+  --lime: #a0e448;
+
+  --accent: #34d399;
+  --accent-ink: #04130d;
+  --accent-g: rgba(52, 211, 153, .12);
+  --amber-g: rgba(251, 191, 36, .10);
+
+  --glow: rgba(52, 211, 153, .20);
+  --glow-amber: rgba(251, 191, 36, .14);
+
+  --shadow-sm: 0 8px 24px rgba(0, 0, 0, .28);
+  --shadow: 0 22px 64px rgba(0, 0, 0, .46);
+
+  --header: rgba(6, 10, 16, .70);
+  --header-line: rgba(255, 255, 255, .07);
+
+  --grid-line: rgba(255, 255, 255, .035);
+  --noise: .05;
+  --firefly-a: .85;
+}
+
+html[data-color-mode="light"] {
+  color-scheme: light;
+
+  --bg: #f3faf6;
+  --bg-2: #eaf6f0;
+  --bg-3: #e0f1e8;
+
+  --surface: rgba(255, 255, 255, .70);
+  --surface-2: rgba(255, 255, 255, .86);
+  --surface-3: rgba(255, 255, 255, .96);
+
+  --border: rgba(9, 65, 51, .10);
+  --border-strong: rgba(9, 65, 51, .18);
+
+  --text: #08201a;
+  --text-2: #4b625b;
+  --text-3: #7e938c;
+
+  --mint: #0f9d76;
+  --mint-soft: #0b8a67;
+  --amber: #b45309;
+  --lime: #4d7c0f;
+
+  --accent: #0f9d76;
+  --accent-ink: #ffffff;
+  --accent-g: rgba(15, 157, 118, .10);
+  --amber-g: rgba(180, 83, 9, .08);
+
+  --glow: rgba(15, 157, 118, .16);
+  --glow-amber: rgba(217, 119, 6, .10);
+
+  --shadow-sm: 0 6px 20px rgba(17, 74, 58, .07);
+  --shadow: 0 22px 60px rgba(17, 74, 58, .12);
+
+  --header: rgba(246, 253, 249, .78);
+  --header-line: rgba(9, 65, 51, .08);
+
+  --grid-line: rgba(9, 65, 51, .045);
+  --noise: .035;
+  --firefly-a: .38;
 }
