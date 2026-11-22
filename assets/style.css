@@ -1150,3 +1150,130 @@ html[data-color-mode="light"] .thanks-card img {
   0% { opacity: .95; transform: translate(0, 0) scale(1); }
   100% { opacity: 0; transform: translate(var(--sx, 0), var(--sy, -14px)) scale(.15); }
 }
+.scroll-progress{background:linear-gradient(90deg,var(--mint),var(--amber))}.back-top:hover{border-color:var(--border-strong);box-shadow:0 0 26px rgba(52,211,153,.24)}.nav-links a.is-active{background:rgba(52,211,153,.12)}
+
+/* ---------- 超进化视觉层 ---------- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  z-index: 300;
+  pointer-events: none;
+}
+.back-top {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 120;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid var(--border-strong);
+  border-radius: 50%;
+  background: var(--surface-2);
+  color: var(--text-2);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px) scale(.92);
+  transition: opacity .3s ease, visibility .3s ease, transform .3s ease,
+              color .25s ease, border-color .25s ease, box-shadow .25s ease;
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+}
+.back-top.show { opacity: 1; visibility: visible; transform: none; }
+.back-top:hover { color: var(--text); border-color: var(--accent-line); box-shadow: 0 0 26px var(--accent-soft); }
+.back-top svg { width: 17px; height: 17px; }
+
+.card, .thanks-card, .version-card, .product-card {
+  --rx: 0deg;
+  --ry: 0deg;
+  transform: perspective(1000px) rotateX(var(--rx)) rotateY(var(--ry));
+  transition: transform .32s cubic-bezier(.22, 1, .36, 1), border-color .3s ease,
+              box-shadow .3s ease, background-color .3s ease;
+  will-change: transform;
+}
+.card:hover, .thanks-card:hover, .version-card:hover, .product-card:hover {
+  transform: perspective(1000px) rotateX(var(--rx)) rotateY(var(--ry)) translateY(-4px);
+}
+
+.btn { position: relative; overflow: hidden; }
+.btn::after {
+  content: "";
+  position: absolute;
+  top: -60%;
+  bottom: -60%;
+  left: -70%;
+  width: 45%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .38), transparent);
+  transform: skewX(-18deg);
+  transition: left .65s cubic-bezier(.22, 1, .36, 1);
+  pointer-events: none;
+}
+.btn:hover::after { left: 130%; }
+
+.nav-links a.is-active {
+  color: var(--text);
+  background: var(--accent-soft, rgba(255, 255, 255, .06));
+}
+
+.window-wrap::before {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  z-index: -1;
+  border-radius: 28px;
+  background: radial-gradient(circle at 50% 45%, var(--accent-soft, rgba(79, 140, 255, .2)), transparent 68%);
+  filter: blur(26px);
+  opacity: .75;
+  animation: premium-breathe 9s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes premium-breathe {
+  0%, 100% { opacity: .55; transform: scale(.98); }
+  50% { opacity: .9; transform: scale(1.03); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card, .thanks-card, .version-card, .product-card { transform: none !important; transition: none !important; }
+  .btn::after { display: none; }
+  .window-wrap::before { animation: none; }
+}
+
+/* 超进化视觉层：站点强调色别名 */
+:root {
+  --accent-soft: rgba(52, 211, 153, .14);
+  --accent-line: rgba(52, 211, 153, .38);
+}
+
+/* 超进化视觉层：卡片跟随光斑 */
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(320px circle at var(--mx, 50%) var(--my, 0%), var(--accent-soft), transparent 70%);
+  opacity: 0;
+  transition: opacity .35s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+.card:hover::after { opacity: 1; }
+
+/* 超进化视觉层：返回顶部进度环 */
+.back-top::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: conic-gradient(var(--accent) calc(var(--p, 0) * 1%), transparent 0);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 2px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 2px));
+  opacity: .85;
+  pointer-events: none;
+}

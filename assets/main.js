@@ -269,3 +269,80 @@
     shown = false;
   });
 })();
+
+/* ---------- 超进化视觉层 ---------- */
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var bar = document.createElement('div');
+  bar.className = 'scroll-progress';
+  document.body.appendChild(bar);
+
+  var top = document.createElement('button');
+  top.className = 'back-top';
+  top.type = 'button';
+  top.setAttribute('aria-label', '返回顶部');
+  top.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>';
+  document.body.appendChild(top);
+  top.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+  });
+
+  var ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(function () {
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      var p = max > 0 ? Math.min(1, window.scrollY / max) : 0;
+      bar.style.transform = 'scaleX(' + p + ')';
+      top.style.setProperty('--p', (p * 100).toFixed(1));
+      top.classList.toggle('show', window.scrollY > 640);
+      ticking = false;
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  if (!reduce) {
+    document.querySelectorAll('.card, .thanks-card, .version-card, .product-card').forEach(function (card) {
+      card.addEventListener('mousemove', function (e) {
+        var r = card.getBoundingClientRect();
+        var px = (e.clientX - r.left) / r.width;
+        var py = (e.clientY - r.top) / r.height;
+        card.style.setProperty('--mx', (px * 100).toFixed(1) + '%');
+        card.style.setProperty('--my', (py * 100).toFixed(1) + '%');
+        card.style.setProperty('--rx', ((.5 - py) * 2.6).toFixed(2) + 'deg');
+        card.style.setProperty('--ry', ((px - .5) * 2.6).toFixed(2) + 'deg');
+      });
+      card.addEventListener('mouseleave', function () {
+        card.style.removeProperty('--rx');
+        card.style.removeProperty('--ry');
+      });
+    });
+  }
+
+  var nav = document.getElementById('navLinks');
+  if (nav) {
+    var anchors = Array.prototype.slice.call(nav.querySelectorAll('a[href^="#"]'));
+    var map = {};
+    anchors.forEach(function (a) {
+      var sec = document.getElementById(a.getAttribute('href').slice(1));
+      if (sec) map[sec.id] = a;
+    });
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (!en.isIntersecting) return;
+          anchors.forEach(function (a) { a.classList.remove('is-active'); });
+          var active = map[en.target.id];
+          if (active) active.classList.add('is-active');
+        });
+      }, { rootMargin: '-42% 0px -50% 0px' });
+      Object.keys(map).forEach(function (id) {
+        var sec = document.getElementById(id);
+        if (sec) io.observe(sec);
+      });
+    }
+  }
+})();
